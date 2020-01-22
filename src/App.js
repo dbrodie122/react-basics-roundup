@@ -1,13 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
 import FormComponent from './components/FormComponent';
 import ListComponent from './components/ListComponent';
 
+const data = [
+  {
+    color: 'red',
+    text: 'Zebra'
+  },
+  { color: 'green', text: 'Potatoes' },
+  { color: 'red', text: 'Trees' },
+  { color: 'green', text: 'Computers' }
+];
+
 function App() {
+  const [listItems, setListItems] = useState(data);
+
   return (
     <div>
       <h1>React Roundup App</h1>
       <FormComponent />
-      <ListComponent />
+      <ListComponent listItems={listItems} />
     </div>
   );
 }
