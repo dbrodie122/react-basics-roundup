@@ -15,11 +15,20 @@ const data = [
 function App() {
   const [listItems, setListItems] = useState(data);
 
+  const swapColor = listItem => {
+    if (listItem.color === 'red') {
+      listItem.color = 'green';
+    } else if (listItem.color === 'green') {
+      listItem.color = 'red';
+    }
+    const newItems = [...listItems];
+    setListItems(newItems);
+  };
   return (
     <div>
       <h1>React Roundup App</h1>
       <FormComponent />
-      <ListComponent listItems={listItems} />
+      <ListComponent listItems={listItems} swapColor={swapColor} />
     </div>
   );
 }
